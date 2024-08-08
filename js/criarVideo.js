@@ -10,9 +10,13 @@ async function criarVideo(evento) {
     const imagem = document.querySelector('[data-imagem]').value;
     const descricao = Math.floor(Math.random() * 10).toString();
 
-    await connectaApi.criaVideo(titulo, descricao, url, imagem);
+    try {
+        await connectaApi.criaVideo(titulo, descricao, url, imagem);
 
-    window.location.href = '../pages/envio-concluido.html';
+        window.location.href = '../pages/envio-concluido.html';
+    } catch (e) {
+        alert(e);
+    }
 
 }
 
